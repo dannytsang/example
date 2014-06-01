@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.require_plugin 'vagrant-digitalocean'
+BOX_NAME = ""
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'digital_ocean'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # All Vagrant configuration is done here. The most common configuration
+  # options are documented and commented below. For a complete reference,
+  # please see the online documentation at vagrantup.com.
+  config.vm.provider :digital_ocean do |provider, override|
+  provider.client_id = ''
+  provider.api_key = ''
+  provider.image = 'Ubuntu 14.04 x64'
+  provider.region = 'Amsterdam 2'
+  provider.size = '512MB'
+  provider.ssh_key_name = ''
+  provider.private_networking = 'true'
+  override.ssh.private_key_path = '~/.ssh/id_rsa'
+  override.vm.box = 'digital_ocean'
+  override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+  provider.ca_path = "/etc/ssl/certs/ca-certificates.crt"
+  # Every Vagrant virtual environment requires a box to build off of.
+  config.vm.box = BOX_NAME
+  config.vm.hostname = BOX_NAME
+  end
+end
