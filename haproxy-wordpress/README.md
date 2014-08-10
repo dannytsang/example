@@ -1,5 +1,5 @@
 haproxy-wordpress
-=======
+=================
 
 Example HAProxy configuration for WordPress servers tested on Ubuntu.
 
@@ -18,8 +18,8 @@ Both use cookie sticky sessions so once a connection is established with a backe
 
 Another thing worth noting is the <code>verify none</code> on the backend servers. This negates checking of the SSL certificate from the backend server. This stops any errors if the backend servers are using self signed certificates.
 
-haproxy.cfg.roundrobin:
-* Servers requests are forwarded between one to the other in an sequential order. Server 10.0.0.2 would get the first request and then 10.0.0.3 would get the next request.
+### haproxy.cfg.roundrobin ###
+Servers requests are forwarded between one to the other in an sequential order. Server 10.0.0.2 would get the first request and then 10.0.0.3 would get the next request.
 
-haproxy.cfg.fallback:
-* One server (10.0.0.2) is the primary and the second server (10.0.0.3) is designated as a backup server so only when all the primary server(s) goes down it will use the backup server(s).
+### haproxy.cfg.fallback ###
+One server (10.0.0.2) is the primary and the second server (10.0.0.3) is designated as a backup server so only when all the primary server(s) goes down it will use the backup server(s).
