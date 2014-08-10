@@ -63,11 +63,11 @@ frontend www-https
         default_backend wordpress-https
 
 backend wordpress-http
-        cookie DCFT_ID insert
+        cookie WP_ID insert
         server wp1 10.0.0.2:80 cookie dcft1 check
         server wp2 10.0.0.3:80 cookie dcft2 check
 
 backend wordpress-https
-        cookie DCFT_ID insert
+        cookie WP_ID insert
         server wpssl1 10.0.0.2:443 cookie dcft1 check ssl verify none
         server wpssl2 10.0.0.3:443 cookie dcft2 check ssl verify none
